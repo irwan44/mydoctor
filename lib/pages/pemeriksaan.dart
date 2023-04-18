@@ -51,13 +51,11 @@ class _WritePrescriptionState extends State<WritePrescription> {
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          Container(
+          SingleChildScrollView(
+          child : Container(
             padding: const EdgeInsets.fromLTRB(20, 8, 20, 20),
             decoration: const BoxDecoration(
               color: Color.fromARGB(255, 35, 163, 223),
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(10),
-                  bottomRight: Radius.circular(10)),
               image: DecorationImage(
                   image: AssetImage('assets/images/Design1.png'),
                   fit: BoxFit.cover),
@@ -69,7 +67,7 @@ class _WritePrescriptionState extends State<WritePrescription> {
                 Expanded(
                   child:  Container(
                     width: displayWidth(context),
-                    height: 100,
+                    height: 70,
                     decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 35, 163, 223),
                       borderRadius: BorderRadius.only(
@@ -80,7 +78,7 @@ class _WritePrescriptionState extends State<WritePrescription> {
                           fit: BoxFit.cover),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(0.0),
                       child: Column(
                         children: [
                           _textWidgetRow(
@@ -105,6 +103,7 @@ class _WritePrescriptionState extends State<WritePrescription> {
                 ),
               ],
             ),
+          ),
           ),
           prescriptionTabs(),
         ],
@@ -143,20 +142,16 @@ class _WritePrescriptionState extends State<WritePrescription> {
   }
   AppBar myAppBar() {
     return AppBar(
-      elevation: 0,
+      elevation: 4,
       centerTitle: true,
-      flexibleSpace: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              Color.fromARGB(255, 35, 163, 223),
-              Color.fromARGB(255, 35, 163, 223),
-            ],
-          ),
-        ),
-      ),
+      backgroundColor: Color.fromARGB(255, 35, 163, 223),
+      shape: ContinuousRectangleBorder(
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+
+        ),),
+      //statusBarColor,
       leading: IconButton(
         onPressed: () {
           Navigator.of(context).pop();
@@ -170,7 +165,7 @@ class _WritePrescriptionState extends State<WritePrescription> {
       ),
       title: MyText(
         mTitle: 'Penunjang Medis',
-        mFontSize: 20,
+        mFontSize: 18,
         mFontStyle: FontStyle.normal,
         mFontWeight: FontWeight.normal,
         mTextAlign: TextAlign.center,
@@ -178,7 +173,6 @@ class _WritePrescriptionState extends State<WritePrescription> {
       ),
     );
   }
-
   Widget prescriptionTabs() {
     return Expanded(
       child: DefaultTabController(

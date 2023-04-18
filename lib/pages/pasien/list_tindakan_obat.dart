@@ -221,7 +221,8 @@ class _TindakanDokterObatState extends State<TindakanDokterObat> {
 
 
     return Scaffold(
-      resizeToAvoidBottomInset: true, // blue,
+      resizeToAvoidBottomInset: true,
+      appBar: myAppBar() ,// blue,
       body: Container(
           width: size.width,
           child: Stack(
@@ -231,7 +232,7 @@ class _TindakanDokterObatState extends State<TindakanDokterObat> {
               Container(
                   child: Padding(
                       padding: const EdgeInsets.only(
-                        top: 120,
+                        top: 10,
                       ),
                       child: Container(
                           child: Padding(
@@ -377,6 +378,40 @@ class _TindakanDokterObatState extends State<TindakanDokterObat> {
                           )))),
             ],
           )),
+    );
+  }
+
+  AppBar myAppBar() {
+    return AppBar(
+      elevation: 4,
+      centerTitle: true,
+      backgroundColor: Color.fromARGB(255, 35, 163, 223),
+      shape: ContinuousRectangleBorder(
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+
+        ),),
+      //statusBarColor,
+      leading: IconButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        icon: MySvgAssetsImg(
+          imageName: "back.svg",
+          fit: BoxFit.contain,
+          imgHeight: 35,
+          imgWidth: 30,
+        ),
+      ),
+      title: MyText(
+        mTitle: 'ISI Resep',
+        mFontSize: 18,
+        mFontStyle: FontStyle.normal,
+        mFontWeight: FontWeight.normal,
+        mTextAlign: TextAlign.center,
+        mTextColor: white,
+      ),
     );
   }
 
@@ -1174,7 +1209,7 @@ class _TindakanDokterObatState extends State<TindakanDokterObat> {
           // padding: EdgeInsets.symmetric(horizontal: 0),
             padding: EdgeInsets.only(top: 0),
             child: Container(
-              height: 200,
+              height: 100,
               decoration: BoxDecoration(
                 color: blue,
                 borderRadius: BorderRadius.only(
@@ -1191,44 +1226,10 @@ class _TindakanDokterObatState extends State<TindakanDokterObat> {
                       Stack(
                           children: [
                             Container(
-                              padding: const EdgeInsets.only(top: 44.0),
                               height: displayHeight(context) * .55, // 125,
                               width: displayWidth(context),
                               child: Column(
                                 children: [
-                                  Row(
-                                    children: <Widget>[
-                                      Container(
-                                        width: 68,
-                                        child: IconButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          icon: MySvgAssetsImg(
-                                            imageName: "back.svg",
-                                            fit: BoxFit.contain,
-                                            imgHeight: 35,
-                                            imgWidth: 30,
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Align(
-                                            alignment: Alignment.center,
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(right: 50.0),
-                                              child: MyText(
-                                                mTitle: 'Isi Resep',
-                                                mFontSize: 20,
-                                                mFontStyle: FontStyle.normal,
-                                                mFontWeight: FontWeight.normal,
-                                                mTextAlign: TextAlign.center,
-                                                mTextColor: white,
-                                              ),
-                                            )),
-                                      ),
-                                    ],
-                                  ),
                                   Container(
                                       decoration: const BoxDecoration(
                                         color: Color.fromARGB(255, 35, 163, 223),

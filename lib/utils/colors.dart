@@ -49,6 +49,9 @@ const gray = Color(0xffa9a9a9);
 const grayDark = Color(0xff6f7982);
 const green = Color(0xFF0EBE5A);
 const orange = Color(0xFFFF8C00);
+const Color primary = Color(0xFF6864EC);
+const Color secondary = Color(0xFFAC7EF8);
+const Color bgColor = Color(0xFFF8F8F9);
 
 class Palette {
   static const Color iconColor = Color(0xFFB6C7D1);

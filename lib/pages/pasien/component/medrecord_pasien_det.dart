@@ -410,8 +410,6 @@ class _DetailmrState extends State< Detailmr> {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Container(
-          height: MediaQuery.of(context).size.height * 0.23, // 125,
-          width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             color: white,
             borderRadius: BorderRadius.circular(10),
@@ -423,7 +421,6 @@ class _DetailmrState extends State< Detailmr> {
                   child: Stack(children: <Widget>[
                     Positioned(
                       child: Container(
-                          height: 310,
                           alignment: Alignment.center,
                           child: Padding(
                             padding: const EdgeInsets.all(5.0),
@@ -554,8 +551,6 @@ class _DetailmrState extends State< Detailmr> {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Container(
-          height: MediaQuery.of(context).size.height * 0.32, // 125,
-          width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             color: Colors.white,
             //decoration for the outer wrapper
@@ -889,7 +884,7 @@ class _DetailmrState extends State< Detailmr> {
     return Padding(
         padding: const EdgeInsets.all(1.0),
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.25, // 125,
+          height: 200, // 125,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             //decoration for the outer wrapper
@@ -981,9 +976,9 @@ class _DetailmrState extends State< Detailmr> {
     final GestureTapCallback? onTap;
 
     return Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.only(top: 5.0),
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.20, // 125,
+          height: 200, // 125,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             //decoration for the outer wrapper
@@ -1050,9 +1045,9 @@ class _DetailmrState extends State< Detailmr> {
     final GestureTapCallback? onTap;
 
     return Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.only(top: 5.0),
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.20, // 125,
+          height: 200, // 125,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             //decoration for the outer wrapper

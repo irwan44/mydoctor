@@ -1,0 +1,2 @@
+com.downloader
+string app_name

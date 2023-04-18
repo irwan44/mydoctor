@@ -71,8 +71,6 @@ dependencies:
   avatar_glow: ^2.0.2
   calendar_timeline: ^1.1.1
   carousel_slider: ^4.1.1
-  fl_chart: ^0.61.0
-
 
   ##
   dio: ^4.0.6

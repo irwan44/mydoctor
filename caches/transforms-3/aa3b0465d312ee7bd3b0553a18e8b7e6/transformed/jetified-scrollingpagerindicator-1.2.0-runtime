@@ -1,0 +1,14 @@
+ru.tinkoff.scrollingpagerindicator.AbstractViewPagerAttacher
+ru.tinkoff.scrollingpagerindicator.RecyclerViewAttacher
+ru.tinkoff.scrollingpagerindicator.RecyclerViewAttacher$1
+ru.tinkoff.scrollingpagerindicator.RecyclerViewAttacher$2
+ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator
+ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator$1
+ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator$Orientation
+ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator$PagerAttacher
+ru.tinkoff.scrollingpagerindicator.ViewPager2Attacher
+ru.tinkoff.scrollingpagerindicator.ViewPager2Attacher$1
+ru.tinkoff.scrollingpagerindicator.ViewPager2Attacher$2
+ru.tinkoff.scrollingpagerindicator.ViewPagerAttacher
+ru.tinkoff.scrollingpagerindicator.ViewPagerAttacher$1
+ru.tinkoff.scrollingpagerindicator.ViewPagerAttacher$2

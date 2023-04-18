@@ -153,6 +153,7 @@ class _TindakanDokterState extends State<TindakanDokter> {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: myAppBar(),
       resizeToAvoidBottomInset: true, // blue,
       body: Container(
           width: size.width,
@@ -162,13 +163,13 @@ class _TindakanDokterState extends State<TindakanDokter> {
               profile(),
               Container(
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 120),
+                  padding: const EdgeInsets.only(top: 100),
                   child: Container(
                     child: Padding(
                       //padding: const EdgeInsets.all(5.0),
                       padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(0.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -185,7 +186,7 @@ class _TindakanDokterState extends State<TindakanDokter> {
               Container(
                   child: Padding(
                       padding: const EdgeInsets.only(
-                        top: 200,
+                        top: 130,
                       ),
                       child: Container(
                           child: Padding(
@@ -274,7 +275,39 @@ class _TindakanDokterState extends State<TindakanDokter> {
 
     );
   }
+  AppBar myAppBar() {
+    return AppBar(
+      elevation: 4,
+      centerTitle: true,
+      backgroundColor: Color.fromARGB(255, 35, 163, 223),
+      shape: ContinuousRectangleBorder(
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
 
+        ),),
+      //statusBarColor,
+      leading: IconButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        icon: MySvgAssetsImg(
+          imageName: "back.svg",
+          fit: BoxFit.contain,
+          imgHeight: 35,
+          imgWidth: 30,
+        ),
+      ),
+      title: MyText(
+        mTitle: 'Tindakan Dokter',
+        mFontSize: 18,
+        mFontStyle: FontStyle.normal,
+        mFontWeight: FontWeight.normal,
+        mTextAlign: TextAlign.center,
+        mTextColor: white,
+      ),
+    );
+  }
   Future<bool> _AddTindakanObat() async {
     AntrianPasienProfile pasien =
         Provider.of<AuthPasienData>(context, listen: false).DataPeriksaProfile;
@@ -322,7 +355,7 @@ class _TindakanDokterState extends State<TindakanDokter> {
           // padding: EdgeInsets.symmetric(horizontal: 0),
             padding: EdgeInsets.only(top: 0),
             child: Container(
-              height: 320,
+              height: 90,
               decoration: BoxDecoration(
                 color: blue,
                 borderRadius: BorderRadius.only(
@@ -339,48 +372,13 @@ class _TindakanDokterState extends State<TindakanDokter> {
                       Stack(
                           children: [
                             Container(
-                              padding: const EdgeInsets.only(top: 44.0),
                               height: displayHeight(context) * .55, // 125,
                               width: displayWidth(context),
                               child: Column(
                                 children: [
-                                  Row(
-                                    children: <Widget>[
-                                      Container(
-                                        width: 68,
-                                        child: IconButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          icon: MySvgAssetsImg(
-                                            imageName: "back.svg",
-                                            fit: BoxFit.contain,
-                                            imgHeight: 35,
-                                            imgWidth: 30,
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Align(
-                                            alignment: Alignment.center,
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(right: 50.0),
-                                              child: MyText(
-                                                mTitle: 'Tindakan Dokter',
-                                                mFontSize: 20,
-                                                mFontStyle: FontStyle.normal,
-                                                mFontWeight: FontWeight.normal,
-                                                mTextAlign: TextAlign.center,
-                                                mTextColor: white,
-                                              ),
-                                            )),
-                                      ),
-                                    ],
-                                  ),
-
                                  Container(
                                       width: displayWidth(context),
-                                      height: 230,
+                                      height: 200,
                                       decoration: const BoxDecoration(
                                         color: Color.fromARGB(255, 35, 163, 223),
                                         borderRadius: BorderRadius.only(
@@ -462,10 +460,8 @@ class _TindakanDokterState extends State<TindakanDokter> {
     vitalsignDataDef = tablesProvider.DataPeriksa;
 
     return Padding(
-      padding: const EdgeInsets.only(top: 50),
+      padding: const EdgeInsets.only(top: 0),
       child: Container(
-          height: MediaQuery.of(context).size.height * 0.08, // 125,
-          width: MediaQuery.of(context).size.width,
           child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: Container(

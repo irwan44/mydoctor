@@ -121,7 +121,8 @@ class _ICD10DokterState extends State<ICD10Dokter> {
       return okeh;
     }
     return Scaffold(
-        resizeToAvoidBottomInset: true, // blue,
+        resizeToAvoidBottomInset: true,
+      appBar: myAppBar(),// blue,
         body: Container(
             width: size.width,
             child: Stack(
@@ -131,7 +132,7 @@ class _ICD10DokterState extends State<ICD10Dokter> {
                 Container(
                     child: Padding(
                         padding: const EdgeInsets.only(
-                          top: 170,
+                          top: 50,
                         ),
                         child: Container(
                             child: Padding(
@@ -670,7 +671,7 @@ class _ICD10DokterState extends State<ICD10Dokter> {
           // padding: EdgeInsets.symmetric(horizontal: 0),
             padding: EdgeInsets.only(top: 0),
             child: Container(
-              height: 200,
+              height: 90,
               decoration: BoxDecoration(
                 color: blue,
                 borderRadius: BorderRadius.only(
@@ -687,44 +688,10 @@ class _ICD10DokterState extends State<ICD10Dokter> {
                       Stack(
                           children: [
                             Container(
-                              padding: const EdgeInsets.only(top: 44.0),
                               height: displayHeight(context) * .55, // 125,
                               width: displayWidth(context),
                               child: Column(
                                 children: [
-                                  Row(
-                                    children: <Widget>[
-                                      Container(
-                                        width: 68,
-                                        child: IconButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          icon: MySvgAssetsImg(
-                                            imageName: "back.svg",
-                                            fit: BoxFit.contain,
-                                            imgHeight: 35,
-                                            imgWidth: 30,
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Align(
-                                            alignment: Alignment.center,
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(right: 50.0),
-                                              child: MyText(
-                                                mTitle: 'Isi ICD-10',
-                                                mFontSize: 20,
-                                                mFontStyle: FontStyle.normal,
-                                                mFontWeight: FontWeight.normal,
-                                                mTextAlign: TextAlign.center,
-                                                mTextColor: white,
-                                              ),
-                                            )),
-                                      ),
-                                    ],
-                                  ),
                                   Container(
                                       decoration: const BoxDecoration(
                                         color: Color.fromARGB(255, 35, 163, 223),
@@ -765,6 +732,40 @@ class _ICD10DokterState extends State<ICD10Dokter> {
                             )])]));
               }),
             )));
+  }
+
+  AppBar myAppBar() {
+    return AppBar(
+      elevation: 4,
+      centerTitle: true,
+      backgroundColor: Color.fromARGB(255, 35, 163, 223),
+      shape: ContinuousRectangleBorder(
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+
+        ),),
+      //statusBarColor,
+      leading: IconButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        icon: MySvgAssetsImg(
+          imageName: "back.svg",
+          fit: BoxFit.contain,
+          imgHeight: 35,
+          imgWidth: 30,
+        ),
+      ),
+      title: MyText(
+        mTitle: 'ISI SOAP',
+        mFontSize: 18,
+        mFontStyle: FontStyle.normal,
+        mFontWeight: FontWeight.normal,
+        mTextAlign: TextAlign.center,
+        mTextColor: white,
+      ),
+    );
   }
 
   Widget _textWidgetRow({String? title, String? value}) {

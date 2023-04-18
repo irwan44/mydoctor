@@ -136,9 +136,9 @@ class _PenunjangMedisState extends State<PenunjangMedis> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-
     return SafeArea(
       child: Scaffold(
+      
         resizeToAvoidBottomInset: true,
         backgroundColor: white, // blue,
         body: Container(
@@ -279,6 +279,40 @@ class _PenunjangMedisState extends State<PenunjangMedis> {
                         )))),
               ],
             )),
+      ),
+    );
+  }
+
+  AppBar myAppBar() {
+    return AppBar(
+      elevation: 4,
+      centerTitle: true,
+      backgroundColor: Color.fromARGB(255, 35, 163, 223),
+      shape: ContinuousRectangleBorder(
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+
+        ),),
+      //statusBarColor,
+      leading: IconButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        icon: MySvgAssetsImg(
+          imageName: "back.svg",
+          fit: BoxFit.contain,
+          imgHeight: 35,
+          imgWidth: 30,
+        ),
+      ),
+      title: MyText(
+        mTitle: 'Medical Record Pasien',
+        mFontSize: 18,
+        mFontStyle: FontStyle.normal,
+        mFontWeight: FontWeight.normal,
+        mTextAlign: TextAlign.center,
+        mTextColor: white,
       ),
     );
   }
