@@ -21,6 +21,7 @@ import 'package:doctorapp/provider/pasien_prov.dart';
 import 'package:provider/provider.dart';
 import 'package:doctorapp/pages/pasien/list_antrian_pasienNo.dart';
 import 'package:text_scroll/text_scroll.dart';
+import '../../Screens/statistics.dart';
 import '../../model/dataHomePageModel.dart';
 import '../../widgets/mysvgassetsimg.dart';
 import '../dictionaryhiss.dart';
@@ -92,148 +93,144 @@ class _HomeFState extends State<HomeF> {
                             snapshot.connectionState != ConnectionState.waiting) {
                           GetHomePage data = snapshot.data!;
                           return Container(
-                              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 35),
-                              width: MediaQuery
-                                  .of(context)
-                                  .size
-                                  .width * 1,
-                              height: 140,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(.05),
-                                      blurRadius: 8,
-                                      spreadRadius: 3,
-                                      offset: Offset(0, 10),
+                            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 35),
+                            height: 140,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(.05),
+                                    blurRadius: 8,
+                                    spreadRadius: 3,
+                                    offset: Offset(0, 10),
+                                  ),
+                                ],
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  bottomLeft: Radius.circular(50),
+                                )),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                              "Pendapatan Bulan " + data.list![0].periode!,
+                                              style: TextStyle(
+                                                  color: Colors.grey,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                              height: 5,
+                                            ),
+                                            // Icon(
+                                            //   Icons.arrow_upward,
+                                            //   color: Color(0XFF00838F),
+                                            // )
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          "Rp. " + data.list![0].pendapatan.toString(),
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18.0,
+                                              color: Colors.black87),
+                                        )
+                                      ],
+                                    ),
+                                    // Container(width: 1, height: 50, color: Colors.grey),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            // Text(
+                                            //   "Pendapatan",
+                                            //   style: TextStyle(
+                                            //       color: Colors.grey,
+                                            //       fontWeight: FontWeight.bold),
+                                            // ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            // Icon(
+                                            //   Icons.arrow_downward,
+                                            //   color: Color(0XFF00838F),
+                                            // )
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        // Text(
+                                        //   "Rp. " + data.list![0].pendapatan.toString(),
+                                        //   style: TextStyle(
+                                        //       fontWeight: FontWeight.bold,
+                                        //       fontSize: 18.0,
+                                        //       color: Colors.black87),
+                                        // )
+                                      ],
                                     ),
                                   ],
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
-                                    bottomLeft: Radius.circular(50),
-                                  )),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Text(
-                                                "Pendapatan Bulan " + data.list![0].periode!,
-                                                style: TextStyle(
-                                                    color: Colors.grey,
-                                                    fontWeight: FontWeight.bold),
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                                height: 5,
-                                              ),
-                                              // Icon(
-                                              //   Icons.arrow_upward,
-                                              //   color: Color(0XFF00838F),
-                                              // )
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          Text(
-                                            "Rp. " + data.list![0].pendapatan.toString(),
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18.0,
-                                                color: Colors.black87),
-                                          )
-                                        ],
-                                      ),
-                                      // Container(width: 1, height: 50, color: Colors.grey),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              // Text(
-                                              //   "Pendapatan",
-                                              //   style: TextStyle(
-                                              //       color: Colors.grey,
-                                              //       fontWeight: FontWeight.bold),
-                                              // ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              // Icon(
-                                              //   Icons.arrow_downward,
-                                              //   color: Color(0XFF00838F),
-                                              // )
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          // Text(
-                                          //   "Rp. " + data.list![0].pendapatan.toString(),
-                                          //   style: TextStyle(
-                                          //       fontWeight: FontWeight.bold,
-                                          //       fontSize: 18.0,
-                                          //       color: Colors.black87),
-                                          // )
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  TextScroll(
-                                    "Anda mendapatkan Rp." + data.list![0].pendapatan.toString() + " pada bulan " +  data.list![0].periode! +  " lihat statistik biaya untuk periode ini",
-                                    intervalSpaces: 10,
-                                    velocity: Velocity(pixelsPerSecond: Offset(5, 0)),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    height: 1,
-                                    width: double.maxFinite,
-                                    color: Colors.grey.withOpacity(0.5),
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                            InkWell(
-                              child:  Container(
-                                alignment: Alignment.centerRight,
-                                child: Text(
-                                  "Lihat Pendapatan",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0XFF00B686)),
                                 ),
-                              ),
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => HomeScreen()));
-                              },
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                TextScroll(
+                                  "Anda mendapatkan Rp." + data.list![0].pendapatan.toString() + " pada bulan " +  data.list![0].periode! +  " lihat statistik biaya untuk periode ini",
+                                  intervalSpaces: 10,
+                                  velocity: Velocity(pixelsPerSecond: Offset(5, 0)),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: double.maxFinite,
+                                  color: Colors.grey.withOpacity(0.5),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                InkWell(
+                                  child:  Container(
+                                    alignment: Alignment.centerRight,
+                                    child: Text(
+                                      "Lihat Pendapatan",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Color(0XFF00B686)),
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => HomeScreen()));
+                                  },
+                                ),
+                                // Container(
+                                //   alignment: Alignment.centerRight,
+                                //   child: Text(
+                                //     "Lihat Pendapatan",
+                                //     style: TextStyle(
+                                //         fontWeight: FontWeight.bold,
+                                //         color: Color(0XFF00B686)),
+                                //   ),
+                                // )
+                              ],
                             ),
-                                  // Container(
-                                  //   alignment: Alignment.centerRight,
-                                  //   child: Text(
-                                  //     "Lihat Pendapatan",
-                                  //     style: TextStyle(
-                                  //         fontWeight: FontWeight.bold,
-                                  //         color: Color(0XFF00B686)),
-                                  //   ),
-                                  // )
-                                ],
-                              ),
-                            );
+                          );
                         }else {
                           return Center(child: CircularProgressIndicator(),);
                         }
@@ -264,168 +261,168 @@ class _HomeFState extends State<HomeF> {
                                       const SizedBox(
                                         height: 10,
                                       ),
-                            Padding(
-                                padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-                                child: StaggeredGrid.count(
-                                  crossAxisCount: 3,
-                                  mainAxisSpacing: 20,
-                                  crossAxisSpacing: 10,
-                                  children: [
-                                    CustomCard(
-                                      shadow: false,
-                                      width: double.infinity,
-                                      bgColor: MyColors.white,
-                                      borderRadius: BorderRadius.circular(15),
-                                      padding: EdgeInsets.only(bottom: 10, top: 5,left: 6),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Row(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: <Widget>[
-                                                CustomCard(
-                                                    shadow: false,
-                                                    height: 50,
-                                                    width: 40,
-                                                    bgColor: blue,
-                                                    borderRadius: BorderRadius.circular(10),
-                                                    child: Center(
-                                                      child:   MyText(
-                                                        mTitle: data.list![0].jmlKunjungan! ,
-                                                        mTextAlign: TextAlign.start,
-                                                        mTextColor: Colors.white,
-                                                        mFontSize: 22,
-                                                        mFontStyle: FontStyle.normal,
-                                                        mFontWeight: FontWeight.bold,
-                                                      ),)
+                                      Padding(
+                                          padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+                                          child: StaggeredGrid.count(
+                                            crossAxisCount: 3,
+                                            mainAxisSpacing: 20,
+                                            crossAxisSpacing: 10,
+                                            children: [
+                                              CustomCard(
+                                                shadow: false,
+                                                width: double.infinity,
+                                                bgColor: MyColors.white,
+                                                borderRadius: BorderRadius.circular(15),
+                                                padding: EdgeInsets.only(bottom: 10, top: 5,left: 6),
+                                                child: Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    Row(
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        mainAxisSize: MainAxisSize.max,
+                                                        children: <Widget>[
+                                                          CustomCard(
+                                                              shadow: false,
+                                                              height: 50,
+                                                              width: 40,
+                                                              bgColor: blue,
+                                                              borderRadius: BorderRadius.circular(10),
+                                                              child: Center(
+                                                                child:   MyText(
+                                                                  mTitle: data.list![0].jmlKunjungan! ,
+                                                                  mTextAlign: TextAlign.start,
+                                                                  mTextColor: Colors.white,
+                                                                  mFontSize: 22,
+                                                                  mFontStyle: FontStyle.normal,
+                                                                  mFontWeight: FontWeight.bold,
+                                                                ),)
+                                                          ),
+                                                          SizedBox(
+                                                            width: 15,
+                                                          ),
+                                                          Container(
+                                                            padding: const EdgeInsets.only(top: 10),
+                                                          ),
+                                                        ]
+                                                    ),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    TextScroll(
+                                                      'Jumlah Kunjungan Hari ini',
+                                                      intervalSpaces: 10,
+                                                      velocity: Velocity(pixelsPerSecond: Offset(5, 0)),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                  ],
                                                 ),
-                                                SizedBox(
-                                                  width: 15,
+                                              ),
+                                              CustomCard(
+                                                shadow: false,
+                                                width: double.infinity,
+                                                bgColor: MyColors.white,
+                                                borderRadius: BorderRadius.circular(15),
+                                                padding: EdgeInsets.only(bottom: 10, top: 5, left: 6),
+                                                child: Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    Row(
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        mainAxisSize: MainAxisSize.max,
+                                                        children: <Widget>[
+                                                          CustomCard(
+                                                              shadow: false,
+                                                              height: 50,
+                                                              width: 40,
+                                                              bgColor: blue,
+                                                              borderRadius: BorderRadius.circular(10),
+                                                              child: Center(
+                                                                child:  MyText(
+                                                                  mTitle: data.list![0].jmlResep! ,
+                                                                  mTextAlign: TextAlign.start,
+                                                                  mTextColor: Colors.white,
+                                                                  mFontSize: 22,
+                                                                  mFontStyle: FontStyle.normal,
+                                                                  mFontWeight: FontWeight.bold,
+                                                                ),)
+                                                          ),
+                                                          SizedBox(
+                                                            width: 15,
+                                                          ),
+                                                          Container(
+                                                            padding: const EdgeInsets.only(top: 10),
+                                                          ),
+                                                        ]
+                                                    ),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    TextScroll(
+                                                      'Jumlah Resep',
+                                                      intervalSpaces: 10,
+                                                      velocity: Velocity(pixelsPerSecond: Offset(5, 0)),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                  ],
                                                 ),
-                                                Container(
-                                                  padding: const EdgeInsets.only(top: 10),
+                                              ),
+                                              CustomCard(
+                                                shadow: false,
+                                                width: double.infinity,
+                                                bgColor: MyColors.white,
+                                                borderRadius: BorderRadius.circular(15),
+                                                padding: EdgeInsets.only(bottom: 10, top: 5, left: 6),
+                                                child: Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Row(
+                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                        mainAxisSize: MainAxisSize.max,
+                                                        children: <Widget>[
+                                                          CustomCard(
+                                                              shadow: false,
+                                                              height: 50,
+                                                              width: 40,
+                                                              bgColor: blue,
+                                                              borderRadius: BorderRadius.circular(10),
+                                                              child: Center(
+                                                                child:  MyText(
+                                                                  mTitle: data.list![0].jmlRujuk! ,
+                                                                  mTextAlign: TextAlign.start,
+                                                                  mTextColor: Colors.white,
+                                                                  mFontSize: 22,
+                                                                  mFontStyle: FontStyle.normal,
+                                                                  mFontWeight: FontWeight.bold,
+                                                                ),)
+                                                          ),
+                                                          SizedBox(
+                                                            width: 15,
+                                                          ),
+                                                          Container(
+                                                            padding: const EdgeInsets.only(top: 15),
+                                                          ),
+                                                        ]
+                                                    ),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    TextScroll(
+                                                      'Jumlah Rujukan Hari ini',
+                                                      intervalSpaces: 10,
+                                                      velocity: Velocity(pixelsPerSecond: Offset(5, 0)),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                  ],
                                                 ),
-                                              ]
-                                          ),
-                                          SizedBox(
-                                            height: 10,
-                                          ),
-                                          TextScroll(
-                                            'Jumlah Kunjungan Hari ini',
-                                            intervalSpaces: 10,
-                                            velocity: Velocity(pixelsPerSecond: Offset(5, 0)),
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    CustomCard(
-                                      shadow: false,
-                                      width: double.infinity,
-                                      bgColor: MyColors.white,
-                                      borderRadius: BorderRadius.circular(15),
-                                      padding: EdgeInsets.only(bottom: 10, top: 5, left: 6),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Row(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: <Widget>[
-                                                CustomCard(
-                                                    shadow: false,
-                                                    height: 50,
-                                                    width: 40,
-                                                    bgColor: blue,
-                                                    borderRadius: BorderRadius.circular(10),
-                                                    child: Center(
-                                                      child:  MyText(
-                                                        mTitle: data.list![0].jmlResep! ,
-                                                        mTextAlign: TextAlign.start,
-                                                        mTextColor: Colors.white,
-                                                        mFontSize: 22,
-                                                        mFontStyle: FontStyle.normal,
-                                                        mFontWeight: FontWeight.bold,
-                                                      ),)
-                                                ),
-                                                SizedBox(
-                                                  width: 15,
-                                                ),
-                                                Container(
-                                                  padding: const EdgeInsets.only(top: 10),
-                                                ),
-                                              ]
-                                          ),
-                                          SizedBox(
-                                            height: 10,
-                                          ),
-                                          TextScroll(
-                                            'Jumlah Resep',
-                                            intervalSpaces: 10,
-                                            velocity: Velocity(pixelsPerSecond: Offset(5, 0)),
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    CustomCard(
-                                      shadow: false,
-                                      width: double.infinity,
-                                      bgColor: MyColors.white,
-                                      borderRadius: BorderRadius.circular(15),
-                                      padding: EdgeInsets.only(bottom: 10, top: 5, left: 6),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: <Widget>[
-                                                CustomCard(
-                                                    shadow: false,
-                                                    height: 50,
-                                                    width: 40,
-                                                    bgColor: blue,
-                                                    borderRadius: BorderRadius.circular(10),
-                                                    child: Center(
-                                                      child:  MyText(
-                                                        mTitle: data.list![0].jmlRujuk! ,
-                                                        mTextAlign: TextAlign.start,
-                                                        mTextColor: Colors.white,
-                                                        mFontSize: 22,
-                                                        mFontStyle: FontStyle.normal,
-                                                        mFontWeight: FontWeight.bold,
-                                                      ),)
-                                                ),
-                                                SizedBox(
-                                                  width: 15,
-                                                ),
-                                                Container(
-                                                  padding: const EdgeInsets.only(top: 15),
-                                                ),
-                                              ]
-                                          ),
-                                          SizedBox(
-                                            height: 10,
-                                          ),
-                                          TextScroll(
-                                            'Jumlah Rujukan Hari ini',
-                                            intervalSpaces: 10,
-                                            velocity: Velocity(pixelsPerSecond: Offset(5, 0)),
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ))]));
+                                              ),
+                                            ],
+                                          ))]));
                         }else {
                           return Center(child: CircularProgressIndicator(),);
                         }
@@ -434,10 +431,7 @@ class _HomeFState extends State<HomeF> {
                   const SizedBox(
                     height: 10,
                   ),
-                  CustomCard(
-                    shadow: false,
-                    bgColor: Colors.white,
-                    borderRadius: BorderRadius.circular(0),
+                  Container(
                     child : Column(
                       children: [
                         const SizedBox(
@@ -451,337 +445,337 @@ class _HomeFState extends State<HomeF> {
                         const SizedBox(
                           height: 10,
                         ),
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 10, 16, 0),
-                      child: StaggeredGrid.count(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 20,
-                        crossAxisSpacing: 10,
-                        children: [
-                          CustomCard(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ListingCariMRPasienAll()));
-                            },
-                            shadow: false,
-                            width: double.infinity,
-                            bgColor: MyColors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            padding: EdgeInsets.all(16),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                        Padding(
+                            padding: const EdgeInsets.fromLTRB(16, 10, 16, 0),
+                            child: StaggeredGrid.count(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 20,
+                              crossAxisSpacing: 10,
                               children: [
                                 CustomCard(
-                                    shadow: false,
-                                    height: 50,
-                                    width: 50,
-                                    bgColor: blue,
-                                    borderRadius: BorderRadius.circular(100),
-                                    child: Center(
-                                      child: MySvgAssetsImg(
-                                        imageName: "medicalrecord.svg",
-                                        fit: BoxFit.contain,
-                                        imgHeight: 25,
-                                        imgWidth: 19,
-                                      ),)
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  "History Medical Record",
-                                  style: TextStyle(
-                                      color: MyColors.blackText,
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  "Menunjukan Data Medical Record Pasien",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: MyColors.blackText.withOpacity(.8),
-                                    fontSize: MyFontSize.small3,
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => ListingCariMRPasienAll()));
+                                  },
+                                  shadow: false,
+                                  width: double.infinity,
+                                  bgColor: MyColors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  padding: EdgeInsets.all(16),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      CustomCard(
+                                          shadow: false,
+                                          height: 50,
+                                          width: 50,
+                                          bgColor: blue,
+                                          borderRadius: BorderRadius.circular(100),
+                                          child: Center(
+                                            child: MySvgAssetsImg(
+                                              imageName: "medicalrecord.svg",
+                                              fit: BoxFit.contain,
+                                              imgHeight: 25,
+                                              imgWidth: 19,
+                                            ),)
+                                      ),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      Text(
+                                        "History Medical Record",
+                                        style: TextStyle(
+                                            color: MyColors.blackText,
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        height: 11,
+                                      ),
+                                      Text(
+                                        "Menunjukan Data Medical Record Pasien",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: MyColors.blackText.withOpacity(.8),
+                                          fontSize: MyFontSize.small3,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                          CustomCard(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ListingAntrianPasien()));
-                            },
+                                CustomCard(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => ListingAntrianPasien()));
+                                  },
 
-                            shadow: false,
-                            width: double.infinity,
-                            bgColor: MyColors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            padding: EdgeInsets.all(18),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                CustomCard(
-                                    shadow: false,
-                                    height: 50,
-                                    width: 50,
-                                    bgColor: blue,
-                                    borderRadius: BorderRadius.circular(100),
-                                    child: Center(
-                                      child: MySvgAssetsImg(
-                                        imageName: "antrian.svg",
-                                        fit: BoxFit.contain,
-                                        imgHeight: 30,
-                                        imgWidth: 19,
-                                      ),)
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  "Tindakan Dokter",
-                                  style: TextStyle(
-                                      color: MyColors.blackText,
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  "Menunjukan Data Antrian Pasien",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: MyColors.blackText.withOpacity(.8),
-                                    fontSize: MyFontSize.small3,
+                                  shadow: false,
+                                  width: double.infinity,
+                                  bgColor: MyColors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  padding: EdgeInsets.all(18),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      CustomCard(
+                                          shadow: false,
+                                          height: 50,
+                                          width: 50,
+                                          bgColor: blue,
+                                          borderRadius: BorderRadius.circular(100),
+                                          child: Center(
+                                            child: MySvgAssetsImg(
+                                              imageName: "antrian.svg",
+                                              fit: BoxFit.contain,
+                                              imgHeight: 30,
+                                              imgWidth: 19,
+                                            ),)
+                                      ),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      Text(
+                                        "Tindakan Dokter",
+                                        style: TextStyle(
+                                            color: MyColors.blackText,
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "Menunjukan Data Antrian Pasien",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: MyColors.blackText.withOpacity(.8),
+                                          fontSize: MyFontSize.small3,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
-                            ),
-                          ),
-                        ],
-                      )),
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 10, 16, 0),
-                      child: StaggeredGrid.count(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 20,
-                        crossAxisSpacing: 10,
-                        children: [
-                          CustomCard(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HomeScreen()));
-                            },
-                            shadow: false,
-                            width: double.infinity,
-                            bgColor: MyColors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            padding: EdgeInsets.all(18),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                            )),
+                        Padding(
+                            padding: const EdgeInsets.fromLTRB(16, 10, 16, 0),
+                            child: StaggeredGrid.count(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 20,
+                              crossAxisSpacing: 10,
                               children: [
                                 CustomCard(
-                                    shadow: false,
-                                    height: 50,
-                                    width: 50,
-                                    bgColor: blue,
-                                    borderRadius: BorderRadius.circular(100),
-                                    child: Center(
-                                      child: MySvgAssetsImg(
-                                        imageName: "pendapatan.svg",
-                                        fit: BoxFit.contain,
-                                        imgHeight: 30,
-                                        imgWidth: 19,
-                                      ),)),
-                                SizedBox(
-                                  height: 15,
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Statistics()));
+                                  },
+                                  shadow: false,
+                                  width: double.infinity,
+                                  bgColor: MyColors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  padding: EdgeInsets.all(18),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      CustomCard(
+                                          shadow: false,
+                                          height: 50,
+                                          width: 50,
+                                          bgColor: blue,
+                                          borderRadius: BorderRadius.circular(100),
+                                          child: Center(
+                                            child: MySvgAssetsImg(
+                                              imageName: "pendapatan.svg",
+                                              fit: BoxFit.contain,
+                                              imgHeight: 30,
+                                              imgWidth: 19,
+                                            ),)),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      Text(
+                                        "Pendapatan",
+                                        style: TextStyle(
+                                            color: MyColors.blackText,
+                                            fontSize: MyFontSize.medium1,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "Menunjukan Pendapatan Dokter",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: MyColors.blackText.withOpacity(.8),
+                                          fontSize: MyFontSize.small3,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                Text(
-                                  "Pendapatan",
-                                  style: TextStyle(
-                                      color: MyColors.blackText,
-                                      fontSize: MyFontSize.medium1,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  "Menunjukan Pendapatan Dokter",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: MyColors.blackText.withOpacity(.8),
-                                    fontSize: MyFontSize.small3,
+                                CustomCard(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => HISS()));
+                                  },
+                                  shadow: false,
+                                  width: double.infinity,
+                                  bgColor: MyColors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  padding: EdgeInsets.all(18),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      CustomCard(
+                                          shadow: false,
+                                          height: 50,
+                                          width: 50,
+                                          bgColor: blue,
+                                          borderRadius: BorderRadius.circular(100),
+                                          child: Center(
+                                            child: MySvgAssetsImg(
+                                              imageName: "hissicon.svg",
+                                              fit: BoxFit.contain,
+                                              imgHeight: 30,
+                                              imgWidth: 19,
+                                            ),)),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      Text(
+                                        "Dictionary HISS",
+                                        style: TextStyle(
+                                            color: MyColors.blackText,
+                                            fontSize: MyFontSize.medium1,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "Menunjukan Catatan Dokter",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: MyColors.blackText.withOpacity(.8),
+                                          fontSize: MyFontSize.small3,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
-                            ),
+                            )),
+                        Container(
+                          padding: const EdgeInsets.only(
+                            left: 20,
+                            right: 20,
+                            top: 10,
                           ),
-                          CustomCard(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HISS()));
-                            },
-                            shadow: false,
-                            width: double.infinity,
-                            bgColor: MyColors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            padding: EdgeInsets.all(18),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                CustomCard(
-                                    shadow: false,
-                                    height: 50,
-                                    width: 50,
-                                    bgColor: blue,
-                                    borderRadius: BorderRadius.circular(100),
-                                    child: Center(
-                                      child: MySvgAssetsImg(
-                                        imageName: "hissicon.svg",
-                                        fit: BoxFit.contain,
-                                        imgHeight: 30,
-                                        imgWidth: 19,
-                                      ),)),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  "Dictionary HISS",
-                                  style: TextStyle(
-                                      color: MyColors.blackText,
-                                      fontSize: MyFontSize.medium1,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  "Menunjukan Catatan Dokter",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: MyColors.blackText.withOpacity(.8),
-                                    fontSize: MyFontSize.small3,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      )),
-                  Container(
-                    padding: const EdgeInsets.only(
-                      left: 20,
-                      right: 20,
-                      top: 10,
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
                   )],
-                  ),
+              ),
               const SizedBox(height: 10),
               CustomCard(
-              shadow: false,
-              bgColor: Colors.white,
-              borderRadius: BorderRadius.circular(0),
-              child : Column(
-              children: [
-                const SizedBox(height: 10),
-                Text(
-                  'Produck Averin',textAlign: TextAlign.start,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,),
-                ),
-              SizedBox(
-                height: 200,
-                width: double.infinity,
-                child: CarouselSlider(
-                  items: [
-                    Container(
-                      margin: EdgeInsets.all(6.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        image: DecorationImage(
-                          image: NetworkImage("https://averin.co.id/images/it_service/post-02.jpg"),
-                          fit: BoxFit.cover,
+                  shadow: false,
+                  bgColor: Colors.white,
+                  borderRadius: BorderRadius.circular(0),
+                  child : Column(
+                      children: [
+                        const SizedBox(height: 10),
+                        Text(
+                          'Produck Averin',textAlign: TextAlign.start,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,),
                         ),
-                      ),
-                    ),
+                        SizedBox(
+                          height: 200,
+                          width: double.infinity,
+                          child: CarouselSlider(
+                            items: [
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  image: DecorationImage(
+                                    image: NetworkImage("https://averin.co.id/images/it_service/post-02.jpg"),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
 
-                    //2nd Image of Slider
-                    Container(
-                      margin: EdgeInsets.all(6.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        image: DecorationImage(
-                          image: NetworkImage("https://averin.co.id/images/it_service/post-01.jpg"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
+                              //2nd Image of Slider
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  image: DecorationImage(
+                                    image: NetworkImage("https://averin.co.id/images/it_service/post-01.jpg"),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
 
-                    //3rd Image of Slider
-                    Container(
-                      margin: EdgeInsets.all(6.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        image: DecorationImage(
-                          image: NetworkImage("https://averin.co.id/images/it_service/post-08.jpg"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
+                              //3rd Image of Slider
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  image: DecorationImage(
+                                    image: NetworkImage("https://averin.co.id/images/it_service/post-08.jpg"),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
 
-                    //4th Image of Slider
-                    Container(
-                      margin: EdgeInsets.all(6.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        image: DecorationImage(
-                          image: NetworkImage("https://averin.co.id/images/it_service/post-09.jpg"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
+                              //4th Image of Slider
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  image: DecorationImage(
+                                    image: NetworkImage("https://averin.co.id/images/it_service/post-09.jpg"),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
 
-                    //5th Image of Slider
-                    Container(
-                      margin: EdgeInsets.all(6.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        image: DecorationImage(
-                          image: NetworkImage("https://averin.co.id/images/it_service/post-05.jpg"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ],
-                  options: CarouselOptions(
-                    height: 180.0,
-                    enlargeCenterPage: true,
-                    autoPlay: true,
-                    aspectRatio: 16 / 9,
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    enableInfiniteScroll: true,
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    viewportFraction: 0.8,
-                  ),
-                ),
-              )
-              ])),
-            const SizedBox(height: 10,),
+                              //5th Image of Slider
+                              Container(
+                                margin: EdgeInsets.all(6.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  image: DecorationImage(
+                                    image: NetworkImage("https://averin.co.id/images/it_service/post-05.jpg"),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ],
+                            options: CarouselOptions(
+                              height: 180.0,
+                              enlargeCenterPage: true,
+                              autoPlay: true,
+                              aspectRatio: 16 / 9,
+                              autoPlayCurve: Curves.fastOutSlowIn,
+                              enableInfiniteScroll: true,
+                              autoPlayAnimationDuration: Duration(milliseconds: 800),
+                              viewportFraction: 0.8,
+                            ),
+                          ),
+                        )
+                      ])),
+              const SizedBox(height: 10,),
               Text('Design By Averin'),
             ],
           ),
@@ -878,6 +872,3 @@ class _HomeFState extends State<HomeF> {
     );
   }
 }
-
-
-

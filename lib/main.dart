@@ -3,10 +3,13 @@ import 'package:doctorapp/apiservice/serviceapi.dart';
 import 'package:doctorapp/pages/splash.dart';
 import 'package:doctorapp/utils/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:doctorapp/provider/auth_user.dart';
 import 'package:doctorapp/provider/pasien_prov.dart';
+import 'data/model/add_date.dart';
 import 'utils/colors.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
@@ -18,7 +21,9 @@ void main() async {
     ChangeNotifierProvider(create: (context) => TindakanList()),
   ], child: const MyApp()));
   configLoading();
-
+  await Hive.initFlutter();
+  Hive.registerAdapter(AdddataAdapter());
+  await Hive.openBox<Add_data>('data');
 }
 
 void configLoading() {
