@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../Screens_pendapatan/add.dart';
+import '../Screens_pendapatan/home.dart';
+import '../Screens_pendapatan/statistics.dart';
 
-import '../Screens/add.dart';
-import '../Screens/home.dart';
-import '../Screens/statistics.dart';
+
 
 class Bottom extends StatefulWidget {
   const Bottom({Key? key}) : super(key: key);

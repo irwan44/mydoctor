@@ -5,7 +5,6 @@ import 'package:doctorapp/pages/dashboard/loginscreen.dart';
 import 'package:doctorapp/pages/tentang_ketentuan_privasi.dart';
 import 'package:doctorapp/pages/dashboard/home.dart';
 import 'package:doctorapp/pages/login.dart';
-import 'package:doctorapp/pages/qrcodescanner.dart';
 import 'package:doctorapp/utils/colors.dart';
 import 'package:doctorapp/utils/strings.dart';
 import 'package:doctorapp/widgets/mysvgassetsimg.dart';

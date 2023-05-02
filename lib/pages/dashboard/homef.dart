@@ -21,7 +21,7 @@ import 'package:doctorapp/provider/pasien_prov.dart';
 import 'package:provider/provider.dart';
 import 'package:doctorapp/pages/pasien/list_antrian_pasienNo.dart';
 import 'package:text_scroll/text_scroll.dart';
-import '../../Screens/statistics.dart';
+import '../../Screens_pendapatan/statistics.dart';
 import '../../model/dataHomePageModel.dart';
 import '../../widgets/mysvgassetsimg.dart';
 import '../dictionaryhiss.dart';
